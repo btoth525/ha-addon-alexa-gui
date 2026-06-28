@@ -69,6 +69,13 @@ header .logo { font-size: 24px; }
   margin-bottom: 14px;
   flex-wrap: wrap;
 }
+#filter-exposed.active {
+  background: var(--success);
+  border-color: var(--success);
+  color: #fff;
+  font-weight: 600;
+}
+#filter-exposed.active:hover { background: var(--success); border-color: var(--success); }
 
 #search {
   flex: 1;

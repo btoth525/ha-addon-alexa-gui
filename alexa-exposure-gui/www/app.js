@@ -14,6 +14,7 @@ let state = {
   entities: [],          // EntityState from /api/state
   activeTab: 'all',
   searchQuery: '',
+  showExposedOnly: false,
   overrides: {},         // {entity_id: {name_override, display_category}}
   dirty: false,
   restartRequired: false,
@@ -140,6 +141,7 @@ function filteredEntities() {
   const q = state.searchQuery.toLowerCase();
   return state.entities.filter(e => {
     if (state.activeTab !== 'all' && e.domain !== state.activeTab) return false;
+    if (state.showExposedOnly && !e.exposed) return false;
     if (q && !e.entity_id.toLowerCase().includes(q) && !e.friendly_name.toLowerCase().includes(q)) return false;
     return true;
   });
@@ -334,10 +336,21 @@ function onSearch(e) {
   renderList();
 }
 
+// ---- Exposed-only filter ----
+function toggleExposedOnly() {
+  state.showExposedOnly = !state.showExposedOnly;
+  const btn = $('filter-exposed');
+  if (btn) btn.classList.toggle('active', state.showExposedOnly);
+  renderList();
+}
+
 // ---- Wire up static buttons and inputs ----
 document.addEventListener('DOMContentLoaded', () => {
   const searchEl = $('search');
   if (searchEl) searchEl.addEventListener('input', onSearch);
+
+  const filterBtn = $('filter-exposed');
+  if (filterBtn) filterBtn.addEventListener('click', toggleExposedOnly);
 
   const saveBtn = $('save-btn');
   if (saveBtn) saveBtn.addEventListener('click', save);
