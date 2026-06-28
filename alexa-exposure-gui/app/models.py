@@ -5,10 +5,11 @@ from pydantic import BaseModel, field_validator
 ALLOWED_DISPLAY_CATEGORIES = {
     "LIGHT", "SWITCH", "SMARTPLUG", "FAN", "THERMOSTAT", "SMARTLOCK",
     "GARAGE_DOOR", "DOOR", "INTERIOR_BLIND", "EXTERIOR_BLIND",
-    "SCENE_TRIGGER", "ACTIVITY_TRIGGER", "OTHER",
+    "SCENE_TRIGGER", "ACTIVITY_TRIGGER", "CONTACT_SENSOR", "MOTION_SENSOR",
+    "SECURITY_PANEL", "SPEAKER", "STREAMING_DEVICE", "TV", "OTHER",
 }
 
-SUPPORTED_DOMAINS = ["light", "switch", "fan", "climate", "lock", "cover", "script"]
+SUPPORTED_DOMAINS = ["light", "switch", "fan", "climate", "lock", "cover", "script", "binary_sensor", "media_player"]
 
 
 class EntityUpdate(BaseModel):

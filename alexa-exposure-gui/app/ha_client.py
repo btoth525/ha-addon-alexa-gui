@@ -6,7 +6,7 @@ from typing import List, Dict, Optional
 
 logger = logging.getLogger(__name__)
 
-SUPPORTED_DOMAINS = {"light", "switch", "fan", "climate", "lock", "cover", "script"}
+SUPPORTED_DOMAINS = {"light", "switch", "fan", "climate", "lock", "cover", "script", "binary_sensor", "media_player"}
 
 _supervisor_token: Optional[str] = None
 _ha_token: Optional[str] = None
