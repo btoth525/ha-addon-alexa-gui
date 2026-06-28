@@ -1,0 +1,27 @@
+name: Alexa Exposure GUI
+version: "0.1.0"
+slug: alexa_exposure_gui
+description: Choose which HA entities are exposed to your custom Alexa Smart Home skill.
+url: https://github.com/btoth525/ha-addon-alexa-gui
+arch:
+  - amd64
+  - aarch64
+init: false
+ingress: true
+ingress_port: 8099
+panel_icon: mdi:amazon-alexa
+panel_title: Alexa Exposure
+hassio_api: true
+homeassistant_api: true
+map:
+  - homeassistant_config:rw
+options:
+  ha_config_path: /homeassistant
+  relocate_secret: true
+  auto_restart_after_apply: false
+  backup_dir: /homeassistant/alexa_gui_backups
+schema:
+  ha_config_path: str
+  relocate_secret: bool
+  auto_restart_after_apply: bool
+  backup_dir: str

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alexa Exposure GUI</title>
+  <base href="./">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <header>
+    <span class="logo">&#8203;&#x1F50A;</span>
+    <h1>Alexa Exposure GUI</h1>
+  </header>
+
+  <div id="main">
+
+    <!-- Migration banners -->
+    <div id="migrated-banner" class="banner info hidden">
+      <span class="msg"></span>
+      <button id="migrated-restart-btn" class="primary">Restart HA Now</button>
+    </div>
+    <div id="migration-failed-banner" class="banner error hidden">
+      <span>&#9888;</span>
+      <span class="msg">Migration failed. Backups were restored. Check logs for details.</span>
+    </div>
+    <div id="not-configured-banner" class="banner warn hidden">
+      <span>&#9888;</span>
+      <span class="msg">No <code>alexa:</code> block found in <code>configuration.yaml</code>. Nothing to manage.</span>
+    </div>
+
+    <!-- Restart-required banner -->
+    <div id="restart-banner" class="banner warn hidden">
+      <span class="msg">Saved. A Home Assistant restart is required to apply changes.</span>
+      <button id="restart-banner-btn" class="danger">Restart HA</button>
+    </div>
+
+    <!-- Restarting in progress -->
+    <div id="restarting-banner" class="banner info hidden">
+      <span class="spinner"></span>
+      <span class="msg">Home Assistant is restarting (~30–60 s)…</span>
+    </div>
+
+    <!-- Discovery reminder -->
+    <div id="discovery-banner" class="banner success hidden">
+      <span>&#10003;</span>
+      <span class="msg">
+        After HA restarts, re-run Alexa device discovery so new/removed devices sync —
+        Alexa app &rarr; Devices &rarr; &#8853; &rarr; Add Device, or say &ldquo;Alexa, discover devices.&rdquo;
+      </span>
+    </div>
+
+    <!-- Error banner -->
+    <div id="error-banner" class="banner error hidden">
+      <span>&#9888;</span>
+      <span class="msg"></span>
+    </div>
+
+    <!-- Controls -->
+    <div id="controls">
+      <input id="search" type="search" placeholder="Search by entity ID or name…" autocomplete="off">
+    </div>
+
+    <!-- Tabs -->
+    <div id="tabs"></div>
+
+    <!-- Bulk helpers -->
+    <div id="bulk">
+      <button id="select-all">Select all</button>
+      <button id="deselect-all">Deselect all</button>
+    </div>
+
+    <!-- Entity list -->
+    <div id="entity-list">
+      <div class="empty"><span class="spinner"></span> Loading…</div>
+    </div>
+
+  </div><!-- /#main -->
+
+  <footer>
+    <button id="save-btn" class="primary" disabled>Save</button>
+    <span style="color:var(--text-dim);font-size:12px;">
+      Changes are validated against HA before applying. A restart is required to take effect.
+    </span>
+  </footer>
+
+</div><!-- /#app -->
+
+<!-- Restart confirmation modal -->
+<div id="restart-modal" class="modal-overlay hidden">
+  <div class="modal">
+    <h2>Restart Home Assistant?</h2>
+    <p>
+      HA will restart and be unavailable for ~30–60 seconds. All automations and
+      integrations will reload. After restart, run Alexa device discovery to sync changes.
+    </p>
+    <div class="modal-actions">
+      <button id="restart-cancel-btn">Cancel</button>
+      <button id="restart-confirm-btn" class="danger">Restart</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
