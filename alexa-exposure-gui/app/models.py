@@ -6,10 +6,10 @@ ALLOWED_DISPLAY_CATEGORIES = {
     "LIGHT", "SWITCH", "SMARTPLUG", "FAN", "THERMOSTAT", "SMARTLOCK",
     "GARAGE_DOOR", "DOOR", "INTERIOR_BLIND", "EXTERIOR_BLIND",
     "SCENE_TRIGGER", "ACTIVITY_TRIGGER", "CONTACT_SENSOR", "MOTION_SENSOR",
-    "SECURITY_PANEL", "OTHER",
+    "SECURITY_PANEL", "SPEAKER", "STREAMING_DEVICE", "TV", "OTHER",
 }
 
-SUPPORTED_DOMAINS = ["light", "switch", "fan", "climate", "lock", "cover", "script", "binary_sensor"]
+SUPPORTED_DOMAINS = ["light", "switch", "fan", "climate", "lock", "cover", "script", "binary_sensor", "media_player"]
 
 
 class EntityUpdate(BaseModel):
