@@ -288,16 +288,16 @@ footer {
 
   .entity-row {
     grid-template-columns: 44px 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto auto auto;
     gap: 2px 0;
     padding: 12px 14px;
     min-height: 56px;
   }
 
-  /* Checkbox spans all three rows, centered */
+  /* Checkbox spans all four rows, centered */
   .entity-row input[type="checkbox"] {
     grid-column: 1;
-    grid-row: 1 / 4;
+    grid-row: 1 / 5;
     align-self: center;
     width: 20px;
     height: 20px;
@@ -316,16 +316,23 @@ footer {
     margin-top: 2px;
   }
 
-  /* Category dropdown in row 3 */
-  .col-category {
+  /* Name override input in row 3 */
+  .col-override {
     display: block;
     grid-column: 2;
     grid-row: 3;
     margin-top: 6px;
   }
-  .col-category select { font-size: 12px; padding: 5px 8px; }
+  .col-override input { font-size: 12px; padding: 5px 8px; }
 
-  .col-override { display: none; }
+  /* Category dropdown in row 4 */
+  .col-category {
+    display: block;
+    grid-column: 2;
+    grid-row: 4;
+    margin-top: 4px;
+  }
+  .col-category select { font-size: 12px; padding: 5px 8px; }
 
   /* Bigger touch targets for all buttons */
   button { min-height: 44px; padding: 10px 14px; }
