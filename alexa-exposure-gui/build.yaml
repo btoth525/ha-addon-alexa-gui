@@ -1,6 +1,2 @@
-build_from:
-  amd64: python:3.13-alpine
-  aarch64: python:3.13-alpine
 args:
-  BUILD_FROM: ""
   BUILD_ARCH: ""
