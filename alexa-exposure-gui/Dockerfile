@@ -1,6 +1,9 @@
 ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
+# BUILD_ARCH is passed by the supervisor but not used; declare it to avoid warnings
+ARG BUILD_ARCH
+
 ENV LANG=C.UTF-8
 WORKDIR /app
 
