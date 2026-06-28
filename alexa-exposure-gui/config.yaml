@@ -1,5 +1,5 @@
 name: Alexa Exposure GUI
-version: "0.1.9"
+version: "0.1.10"
 slug: alexa_exposure_gui
 description: Choose which HA entities are exposed to your custom Alexa Smart Home skill.
 url: https://github.com/btoth525/ha-addon-alexa-gui
